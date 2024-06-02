@@ -1,0 +1,38 @@
+{
+    "title": "Sudoku",
+    "type": "object",
+    "properties": {
+        "numRows": {
+            "$ref": "#/definitions/numRows"
+        },
+        "matrix": {
+            "description": "The matrix (array of arrays) that defines the matrix",
+            "type": "array",
+            "items": {
+                "description": "The matrix (array of arrays) that defines the matrix",
+                "$ref": "#/definitions/arrayLimits",
+                "type": "array",
+                "items": {
+                    "description": "The row elements",
+                    "$ref": "#/definitions/arrayLimits",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                }
+            }
+        }
+    },
+    "definitions": {
+        "numRows": {
+            "type": "integer",
+            "description": "The number of rows",
+            "min": 2,
+            "max": 100
+        },
+        "arrayLimits": {
+            "minItems": 2,
+            "maxItems": 100
+        }
+    }
+}

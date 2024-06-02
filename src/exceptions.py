@@ -1,0 +1,2 @@
+class InvalidInputSudoku(Exception):
+    pass
