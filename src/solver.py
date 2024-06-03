@@ -143,9 +143,10 @@ class SudokuSolver:
         status = solver.solve(model, solution_printer)
 
         # Statistics.
-        print("\nStatistics")
+        print("\n" + "*" * 20 + "\nStatistics")
         print(f"  status   : {solver.status_name(status)}")
         print(f"  conflicts: {solver.num_conflicts}")
         print(f"  branches : {solver.num_branches}")
         print(f"  wall time: {solver.wall_time} s")
         print(f"  sol found: {solution_printer.solution_count}")
+        print("*" * 20)
