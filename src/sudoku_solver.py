@@ -42,6 +42,12 @@ if __name__ == "__main__":
         help="Whether to do a strict sudoku or not. For this to work, "
         + "it must be a square grid, so each sub-matrix contains 1 to number of rows.",
     )
+    parser.add_argument(
+        "--max-solutions",
+        default="10",
+        help="The maximum number of solutions to output, default is 10",
+        type=int,
+    )
     args = parser.parse_args()
 
     # Validate input file
@@ -58,7 +64,9 @@ if __name__ == "__main__":
     # Run the solver
     input_matrix = input_obj.get("matrix", [])
     try:
-        solver = SudokuSolver(args.size, input_matrix, args.strict_sudoku)
+        solver = SudokuSolver(
+            args.size, input_matrix, args.strict_sudoku, solution_limit=args.max_solutions
+        )
         solver.solver()
     except InvalidInputSudoku as e:
         print(f"FAILURE: Invalid input matrix: {repr(e)}")
